@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::post('post-login', 'UserController@userPostLogin');
 
 Route::resource('user', 'UserController');
+
+Route::get('/logout','UserController@logout')->name('logout');

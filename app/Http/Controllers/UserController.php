@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         if(Auth::check()) {
-            dd("index");
+            return view('user.index');
         }
 
         return redirect::to("/")->withSuccess('Oopps! You do not have access');
@@ -128,7 +128,7 @@ class UserController extends Controller
     public function logout(Request $request ) {
         $request->session()->flush();
         Auth::logout();
-        return Redirect('user/');
+        return Redirect('/');
     }
 
 
