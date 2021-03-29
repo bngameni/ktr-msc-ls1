@@ -24,5 +24,16 @@
       </ul>
 </nav>
 
+<div class="container" style="margin-top: 80px; text-align: center;">
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-warning" href="/user/add-library">Add New Library</a>
+        </div>
+        <div class="col-6">
+            <a class="btn btn-warning" href="#">See All Library</a>
+        </div>
+    </div>
+</div>
+
 @endsection
 

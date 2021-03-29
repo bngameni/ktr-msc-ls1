@@ -20,3 +20,5 @@ Route::post('post-login', 'UserController@userPostLogin');
 Route::resource('user', 'UserController');
 
 Route::get('/logout','UserController@logout')->name('logout');
+
+Route::get('/user/add-library','UserController@createLibrary')->name('add-library');

@@ -152,4 +152,10 @@ class UserController extends Controller
     }
 
 
+    //create Libraryy
+
+    public function createLibrary()
+    {
+        return view('user.createLibrary');
+    }
 }
