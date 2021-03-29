@@ -11,12 +11,23 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+
+    public function home(Request $request)
+    {
+        if(!empty($request->session()->get('username')))
+        { 
+            return redirect::to("/user");
+        }
+        return view('welcome');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(Auth::check()) {
             return view('user.index');
@@ -66,7 +77,7 @@ class UserController extends Controller
         {
             $user = new User([
                 'name' => $request->get('name'),
-                'user_name' => $request->get('name'),
+                'user_name' => $request->get('user_name'),
                 'company_name' => $request->get('company_name'),
                 'email' => $request->get('email'),
                 'phone_number' => $request->get('phone_number'),
@@ -144,18 +155,11 @@ class UserController extends Controller
 
         // check user using auth function
         if (Auth::attempt($userCredentials)) {
+            $request->session()->put('username', $request->get('user_name'));
             return redirect()->intended('user');
         }
         else {
             return back()->with('error', 'Whoops! invalid username or password.');
         }
-    }
-
-
-    //create Libraryy
-
-    public function createLibrary()
-    {
-        return view('user.createLibrary');
     }
 }

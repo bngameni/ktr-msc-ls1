@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('login');
+Route::get('/', 'UserController@home')->name('login');
 
 Route::post('post-login', 'UserController@userPostLogin');
 
@@ -21,4 +19,7 @@ Route::resource('user', 'UserController');
 
 Route::get('/logout','UserController@logout')->name('logout');
 
-Route::get('/user/add-library','UserController@createLibrary')->name('add-library');
+Route::get('/add-library','LibraryController@createLibrary')->name('add-library');
+Route::post('/store-library','LibraryController@saveLibrary')->name('store-library');
+
+Route::get('/show-library','LibraryController@showAllLibrary')->name('show-library');

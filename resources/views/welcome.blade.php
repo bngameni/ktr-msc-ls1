@@ -16,12 +16,14 @@
          </div><br />
        @endif
      
+       {{-- Return Message --}}
        @if(session()->get('success'))
         <div class="alert alert-success">
          {{ session()->get('success') }}  
         </div><br />
         @endif
 
+        {{--Return error message--}}
         @if(session()->get('error'))
           <div class="alert alert-danger">
             {{ session()->get('error') }}  
@@ -38,7 +40,7 @@
              <div class="form-group">
                 <label for="email">Password :</label>
                 <input type="password" class="form-control" name="password"/>
-            </div>
+             </div>
 
              <button type="submit" class="btn btn-primary">Login</button><br/>
              <span>Not yet member ??, Click here for <a href="{{route('user.create')}}">sign in</a></span>
